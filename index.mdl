@@ -1,0 +1,49 @@
+<script>
+  import Energy from './src/Energy.kdl'
+  import Mass from './src/Mass.kdl'
+
+  import DemoSection from './components/DemoSection.mdl'
+
+
+</script>
+
+# Knowledge Project
+This is sample repository to demonstrate the syntax, capabilities, and limitations of this framework.
+
+**Caveat**: this is very early proof of concept. If you get the syntax right, everything should work. If you don't, you can have some trouble finding the bug. Not all errors are caught nicely. You should keep an eye on the JS console, use Git to revert to previous versions, and make heavy use of CMD+R.
+
+## MDL — Markdown Language
+MDL is Markdown with added syntax to make it more "programmable".
+
+You can break down your project into several files and import them into this entrypoint `index.mdl` file using the `script` tag.
+
+You can reference imported files with curly braces (e.g., {Energy}), or render them calling their `render` method, like this:
+
+{DemoSection.render()}
+
+You can also import images and KDL code.
+
+## KDL — Knowledge Definition Language
+One of the main ideas of this framework is to separate your ideas from communication. That way you might be able to reuse them in your other projects.
+
+KDL, as a pseudo-formal language*, enables you to encode your ideas / concepts in a predictable format. You can then import them in your MDL files and explain what they're about.
+
+You can reference individual statements ({Energy.statements[0]}), or render them:
+{Energy.statements[0].render()}
+
+You can also render raw file, like this:
+{Energy.render({type: 'codemirror', lines: {to: 8}})}
+
+This is very early PoC, but the idea is that you could also import other KDL/MDL projects as dependencies (`npm install`) to build out your own project. That is the next increment of this project: bootstrapping NPM ecosystem as a testing ground for building open source knowledge.
+
+[*] *Actually, KDL is not much more than UI at this point. It checks the syntax, but it doesn't validate the actual statements. Making KDL a real programming language is a challenge in and of itself.*
+
+## Publishing articles
+Article is simply a GitHub repository. It can be read using the [Knowledge Index](https://knowledge.lukadover.com) frontend. I currently host the index, and I'll just manually update it when there are new articles.
+
+## Learn more / Get involved
+If you think this is crazy, but you're nonetheless intrigued, send me a message: knowledge@lukadover.com.
+
+I'd welcome experienced collaborators to help me build this out — I'm more of a hacker than an engineer; I'd never done parsers/compilers before I started hacking on this project.
+
+See [GitHub](https://github.com/ldover/knowledge-ide) repository for more information.

@@ -1,0 +1,5 @@
+use Energy of './Energy.kdl'
+
+symbol Mass
+
+statement 1 := ({Mass} is equivalent to {Energy})

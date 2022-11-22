@@ -1,0 +1,23 @@
+use Mass of './Mass.kdl'
+
+symbol Energy
+
+statement 1 := ({Energy} is conserved))
+
+statement 2 := ({Energy} is equivalent to {Mass})
+
+// You can optionally add a "proof" to your statements, by
+// using existing axiomatic statements or statements
+// that have already been proven.
+proof §2 {
+  // To reference Mass's first statement use {Mass:1}
+  statement 2.1 (
+    Since {Mass:1}
+  )
+
+  // Note: not actual proof of mass-energy equivalence,
+  // but example how to use the syntax.
+  statement 2.2 (
+    QED {2}
+  )
+}
